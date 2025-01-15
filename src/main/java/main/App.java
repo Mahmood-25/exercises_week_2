@@ -8,6 +8,7 @@ public class App
     public static void main( String[] args )
     {
         Scanner scanner = new Scanner(System.in);
+        // Create new hedgehog
         Hedgehog hedgehog = new Hedgehog("Pikseli", 5);
         
         while (true) {
@@ -21,6 +22,7 @@ public class App
                 String name = scanner.nextLine();
                 hedgehog.setName(name);
                 System.out.println("What is the age of the hedgehog:");
+                // error handling
                 try {
                     int age = scanner.nextInt();
                     hedgehog.setAge(age);
