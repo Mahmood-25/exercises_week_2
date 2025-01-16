@@ -1,5 +1,6 @@
 package main;
 
+
 /**
  * Class for Hedgehog
  * @author asheque
@@ -32,11 +33,14 @@ public class Hedgehog {
 
     // Methods
     // Hedgehog can speak
-    public void speak(){
-        System.out.println("What does hedgehog say?");
-        System.out.println();
-        System.out.println("I am " + name + " and my age is " + age + ", but could you still give me input values?");
+    public void speak(String userInput){
+        if(userInput == null | userInput.isEmpty()){
+            System.out.println("I am " + name + " and my age is " + age + ", but could you still give me input values?");
+        }else{
+            System.out.println(name + ": " + userInput);
+        }
     }
+
     // Hedgehog can run
     public void run(int laps){
         for (int i = 0; i < laps; i++){

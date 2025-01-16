@@ -13,11 +13,14 @@ public class App
         
         while (true) {
             System.out.println("1) Make hedgehog talk, 2) Create new hedgehog, 3) Make hedgehog run, 0) Quit");
-            int choice = scanner.nextInt();
-            scanner.nextLine();
-            if(choice == 1){
-                hedgehog.speak();
-            }else if(choice == 2){
+            String choice = scanner.nextLine();
+            
+            
+            if(choice.equals("1")){
+                System.out.println("What does hedgehog say?");
+                String userInput = scanner.nextLine();
+                hedgehog.speak(userInput);
+            }else if(choice.equals("2")){
                 System.out.println("What is the name of the hedgehog:");
                 String name = scanner.nextLine();
                 hedgehog.setName(name);
@@ -25,22 +28,24 @@ public class App
                 // error handling
                 try {
                     int age = scanner.nextInt();
+                    scanner.nextLine();
                     hedgehog.setAge(age);
                 } catch (Exception e) {
                     System.out.println("Wrong input value");
                     scanner.nextLine();
                 }
                 
-            }else if(choice == 3){
+            }else if(choice.equals("3")){
                 System.out.println("How many laps?");
                 int laps = scanner.nextInt();
+                scanner.nextLine();
                 hedgehog.run(laps);
 
-            }else if(choice == 0){
+            }else if(choice.equals("0")){
                 System.out.println("Thank you for using the program.");
                 break;
             }else{
-                System.out.println("Invalid choice. Please try again.");
+                System.out.println("Wrong input value");
             }
         }
         scanner.close();
